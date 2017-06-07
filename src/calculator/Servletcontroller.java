@@ -26,18 +26,48 @@ import javax.servlet.http.HttpSession;
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 	throws ServletException, IOException 
 	{
-		// Create an object of BasicCalc class
+		BasicCalc det=new BasicCalc();    // Create an object of BasicCalc class
 		
-		//get parameter with req.getparameter() method and 
+		double a=Double.valueOf(req.getParameter("a"));    //get parameter with req.getparameter() method and 
 		
-		// set the values with set parameter into variable a, b
+		double b=Double.valueOf(req.getParameter("b"));// set the values with set parameter into variable a, b
 		
-		// get parameter operation 
+		det.setA(a);
+		det.setB(b);
+		String operation=req.getParameter("operation");// get parameter operation 
 		
-	//	switch (operation)		
+	switch(operation)       //	switch (operation)		
 		{
-		//write switch cases for calling different method of operations
+			case "Add":            //write switch cases for calling different method of operations
+		      c= det.add();
+		      System.out.println("c");
+		      break;
+		      
+		      
+			case "subtract":            //write switch cases for calling different method of operations
+			      c= det.subtract();
+			      System.out.println("c");
+			      break;
+			      
+			case "multiply":            //write switch cases for calling different method of operations
+			      c= det.multiply();
+			      System.out.println("c");
+			      break;
+			      
+			case "divide":            //write switch cases for calling different method of operations
+			      c= det.divide();
+			      System.out.println("c");
+			      break;
+			      
+			default:System.out.println("wrong choice");
+		      
+		      
 		}
+		      
+		      
+		      
+		      
+		      
 		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp); 
 		} 
